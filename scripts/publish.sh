@@ -60,6 +60,11 @@ if [[ ! "$(codesign -d --verbose=1 dist.noindex/MacMusicBlock.app 2>&1)" =~ 'fla
   print -u2 'The app is not signed with the hardened runtime. Rebuild with ./scripts/build.sh --universal.'
   exit 1
 fi
+# Every release is signed with the same certificate, so a copy signed by anyone else is detectable.
+if [[ "$(codesign -dr - dist.noindex/MacMusicBlock.app 2>&1)" != *'identifier "io.macmusicblock.app" and certificate leaf = H"60e479dee9ef30d9ac25735c29c78e492c875bea"'* ]]; then
+  print -u2 'Sign the release with the "MacSnip Release" certificate (./scripts/build.sh --universal).'
+  exit 1
+fi
 ruby -c Casks/macmusicblock.rb
 
 if [[ "${1:-}" == "--check" ]]; then

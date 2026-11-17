@@ -10,7 +10,7 @@ macOS opens Apple Music when you press the play key with nothing playing, connec
 brew install --cask henrikhestnes/tap/macmusicblock
 ```
 
-Update with `brew update` and `brew upgrade --cask macmusicblock`. You can also download `MacMusicBlock.zip` from the [latest release](https://github.com/henrikhestnes/MacMusicBlock/releases/latest) and move **MacMusicBlock.app** to **Applications**. The release is ad-hoc signed and not notarized by Apple, so macOS may block it through Gatekeeper.
+Update with `brew update` and `brew upgrade --cask macmusicblock`. You can also download `MacMusicBlock.zip` from the [latest release](https://github.com/henrikhestnes/MacMusicBlock/releases/latest) and move **MacMusicBlock.app** to **Applications**. The release is signed with a self-signed certificate and not notarized by Apple, so macOS may block it through Gatekeeper.
 
 To build from source instead:
 
